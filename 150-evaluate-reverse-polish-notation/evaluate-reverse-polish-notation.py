@@ -3,24 +3,20 @@ class Solution:
         n = len(tokens)
         stack = []
 
-        for i in range(n):
-            if tokens[i] == '+':
-                a = stack.pop()
+        for i in tokens:
+            if i in "+-*/":
                 b = stack.pop()
-                stack.append(b+a)
-            elif tokens[i] == '-':
                 a = stack.pop()
-                b = stack.pop()
-                stack.append(b-a)
-            elif tokens[i] == '*':
-                a = stack.pop()
-                b = stack.pop()
-                stack.append(b*a)
-            elif tokens[i] == '/':
-                a = stack.pop()
-                b = stack.pop()
-                stack.append(int(b/a))
+
+            if i == '+':
+                stack.append(a+b)
+            elif i == '-':
+                stack.append(a-b)
+            elif i == '*':
+                stack.append(a*b)
+            elif i == "/":
+                stack.append(int(a/b))
             else:
-                stack.append(int(tokens[i]))
-            
-        return stack[-1]
+                stack.append(int(i))
+
+        return stack[0]
