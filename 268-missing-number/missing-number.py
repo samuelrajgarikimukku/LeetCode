@@ -1,8 +1,11 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        s = set(list(range(len(nums)+1)) + nums)
-        n = set(nums)
-        k = s - n
-        k = next(iter(k))
-        return int(k)
-        
+        n = sum(list(range(len(nums)+1)))
+        b = sum(nums)
+        return n-b
+
+
+        ## Set Verions
+        # s = set(range(len(nums)+1))
+        # b = set(nums)
+        # return next(iter(s-b))
