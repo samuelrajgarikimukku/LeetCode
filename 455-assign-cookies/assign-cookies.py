@@ -7,9 +7,7 @@ class Solution:
             if g[l] <= s[r]:
                 ch += 1
                 l += 1
-                r += 1
-            else:
-                r += 1
+            r += 1
         return ch
 
 
