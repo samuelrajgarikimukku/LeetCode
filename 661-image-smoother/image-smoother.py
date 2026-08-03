@@ -1,7 +1,7 @@
 class Solution:
     def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:
         row,col = len(img), len(img[0])
-        dup = [[0]*col for _ in range(row)]
+
 
         for r in range(row):
             for c in range(col):
@@ -10,8 +10,11 @@ class Solution:
                     for j in range(c-1,c+2):
                         if i < 0 or i == row or j < 0 or j == col:
                             continue
-                        total += img[i][j]
+                        total += img[i][j] % 256
                         cnt += 1
-                dup[r][c] = total // cnt
-        return dup
+                img[r][c] = img[r][c] ^ (total // cnt) << 8
+        for r in range(row):
+            for c in range(col):
+                img[r][c] = img[r][c] >> 8
+        return img
         
