@@ -8,9 +8,14 @@ class Solution:
         # c = list(set(b) - set(nums))
         # c.sort()
         # return c
-        nums.sort()
-        b = []
-        for i in range(nums[0],nums[-1]+1):
-            if i not in nums:
-                b.append(i)
-        return b
+        
+        # nums.sort()
+        # b = []
+        # for i in range(nums[0],nums[-1]+1):
+        #     if i not in nums:
+        #         b.append(i)
+        # return b
+
+        ## 3 Approch
+        s = set(nums)
+        return [i for i in range(min(s),max(s)+1) if i not in s]
