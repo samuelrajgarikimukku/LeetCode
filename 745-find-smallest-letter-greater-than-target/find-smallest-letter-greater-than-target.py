@@ -1,6 +1,16 @@
+from typing import List
+
 class Solution:
     def nextGreatestLetter(self, letters: List[str], target: str) -> str:
-        for i in letters:
-            if i > target:
-                return i
-        return letters[0]
+        left = 0
+        right = len(letters)
+
+        while left < right:
+            mid = (left + right) // 2
+
+            if letters[mid] <= target:
+                left = mid + 1
+            else:
+                right = mid
+
+        return letters[left % len(letters)]
