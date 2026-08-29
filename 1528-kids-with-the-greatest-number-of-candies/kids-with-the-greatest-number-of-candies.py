@@ -10,11 +10,17 @@ class Solution:
         #         res.append(False)
         # return res
 
-        # Method 2
+
+
+        # # Method 2
+        # max_can = max(candies)
+        # res = []
+
+        # for i in candies:
+        #     res.append(i + extraCandies >= max_can)
+        # return res
+
+
+        # Method - 3
         max_can = max(candies)
-        res = []
-
-        for i in candies:
-            res.append(i + extraCandies >= max_can)
-
-        return res
+        return [i + extraCandies >= max_can for i in candies]
