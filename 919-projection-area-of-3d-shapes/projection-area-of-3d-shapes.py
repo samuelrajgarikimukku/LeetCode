@@ -12,10 +12,11 @@ class Solution:
             area += max(grid[i])
         
         # left 
-        for j in range(len(grid[0])):
-            max_col = 0
-            for i in range(len(grid)):
-                max_col = max(max_col, grid[i][j])
-            area += max_col
-        
+        # for j in range(len(grid[0])):
+        #     max_col = 0
+        #     for i in range(len(grid)):
+        #         max_col = max(max_col, grid[i][j])
+        #     area += max_col
+        for col in zip(*grid):
+            area += max(col)
         return area
